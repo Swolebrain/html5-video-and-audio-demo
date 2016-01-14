@@ -1,9 +1,14 @@
 
+if (localStorage.getItem("lastThingPlayed")){
+  document.getElementById("audioguy").setAttribute("src", 
+                                    localStorage.getItem("lastThingPlayed"));
+}
 
 
 document.getElementById("load-audio").onclick = function(){
-  document.getElementById("audioguy").setAttribute("src",  
-                                          document.getElementById("source-input").value);
+  var loadedSource = document.getElementById("source-input").value;
+  document.getElementById("audioguy").setAttribute("src", loadedSource);
+  localStorage.setItem("lastThingPlayed", loadedSource);
 };
 
 document.getElementById("speeddown").onclick = function(){
